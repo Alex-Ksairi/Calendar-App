@@ -1,0 +1,41 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 100px auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px;
+    background-color: #224424;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #39603b;
+}
+
+.change-form p {
+    font-size: 14px;
+}
+
+.change-form a {
+    color: #224424;
+    text-decoration: underline;
+    cursor: pointer;
+}

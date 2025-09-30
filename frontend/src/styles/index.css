@@ -1,0 +1,42 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set a default font and smooth text rendering */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default list styles */
+ul, ol {
+  list-style: none;
+}
+
+/* Remove default link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove default form styles */
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  outline: none;
+  border: none;
+  background: none;
+}
+
+/* Set images to max width */
+img {
+  max-width: 100%;
+  display: block;
+}
