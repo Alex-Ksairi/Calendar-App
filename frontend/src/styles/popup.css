@@ -1,0 +1,76 @@
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    border-radius: 15px;
+}
+
+.popup {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Text styles */
+.popup h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.popup p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Inputs */
+.popup input,
+.popup textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    border: 1px solid #d1d1d6;
+    background-color: white;
+    font-size: 15px;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.popup input:focus {
+    border-color: #007aff;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.2);
+}
+
+.popup textarea {
+    resize: none;
+    height: 100px;
+}
+
+/* Date layouts */
+.startdate,
+.enddate {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.startdate input,
+.enddate input {
+    flex: 1;
+}
+
+/* Buttons row */
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;
+}

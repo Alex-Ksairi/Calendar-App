@@ -1,21 +1,27 @@
-// src/pages/Login.jsx
 import React from "react";
 import Form from "../components/Form";
 
+const url = "http://localhost:8000/index.php?action=";
+
 export default function Login() {
-    const fields = [
-        { name: "username", label: "Username", type: "text", required: true },
-        { name: "password", label: "Password", type: "password", required: true },
-    ];
-
-    const handleLogin = (data) => {
-        console.log("Login data:", data);
-        // Call API to login
-    };
-
     return (
-        <div>
-            <Form fields={fields} onSubmit={handleLogin} buttonText="Login" pageName="Login" changeFormText="Don't have an account?" changeFormLink="/register" changeFormLinkText="Register" />
-        </div>
+        <Form
+            fields={[
+                { name: "email", label: "Email", type: "email", required: true },
+                { name: "password", label: "Password", type: "password", required: true },
+            ]}
+            submitUrl={`${url}login`}
+            onSuccess={(data) => {
+                // Save token or user info from backend
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("userID", JSON.stringify(data.user.id));
+                window.location.href = "/";
+            }}
+            buttonText="Login"
+            pageName="Login"
+            changeFormText="Don’t have an account?"
+            changeFormLink="/register"
+            changeFormLinkText="Register here"
+        />
     );
 }

@@ -1,7 +1,8 @@
 import { Navigate } from "react-router-dom";
 
 export default function PrivateRoute({ children }) {
-  const isLoggedIn = localStorage.getItem("isLoggedIn"); // Simple auth check
+  const token = localStorage.getItem("token");
+  const userID = localStorage.getItem("userID");
 
-  return isLoggedIn ? children : <Navigate to="/login" />;
+  return token && userID ? children : <Navigate to="/login" />;
 }
