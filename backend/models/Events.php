@@ -31,4 +31,37 @@ class Events {
         $stmt->execute([":user_id" => $user_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getEventById($id) {
+        $sql = "SELECT * FROM events WHERE id = :id LIMIT 1";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function updateEvent($id, $title, $description, $start_datetime, $end_datetime) {
+        $sql = "UPDATE events
+                SET title = :title,
+                    description = :description,
+                    start_datetime = :start_datetime,
+                    end_datetime = :end_datetime,
+                    updated_at = NOW()
+                WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            ':title' => $title,
+            ':description' => $description,
+            ':start_datetime' => $start_datetime,
+            ':end_datetime' => $end_datetime,
+            ':id' => $id
+        ]);
+        return $stmt->rowCount() > 0;
+    }
+
+    public function deleteEvent($id) {
+        $sql = "DELETE FROM events WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        return $stmt->rowCount() > 0;
+    }
 }

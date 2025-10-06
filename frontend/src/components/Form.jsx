@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function Form({
     fields,
@@ -34,15 +34,13 @@ export default function Form({
                 throw new Error(data.message || "Something went wrong");
             }
 
-            setError(null); // clear error
-            onSuccess(data); // trigger success handler
+            setError(null);
+            onSuccess(data);
         } catch (err) {
             setError(err.message);
 
             // reset form fields
             setFormData(fields.reduce((acc, field) => ({ ...acc, [field.name]: "" }), {}));
-
-            // hide error after 3 seconds
             setTimeout(() => setError(null), 3000);
         }
     };

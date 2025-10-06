@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 require_once __DIR__ . "/config/db.php";
 require_once __DIR__ . "/controllers/UserController.php";
-require_once __DIR__ . "/controllers/EventController.php"; // NEW
+require_once __DIR__ . "/controllers/EventController.php";
 require_once __DIR__ . "/routes/auth.php";
 
 $controller = null;
@@ -25,9 +25,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } elseif ($action === "login") {
         $controller = new UserController($pdo);
         echo json_encode($controller->login($input));
-    } elseif ($action === "create_event") { // NEW
+    } elseif ($action === "create_event") {
         $controller = new EventController($pdo);
         echo json_encode($controller->create($input));
+    } elseif ($action === "update_event") {
+        $controller = new EventController($pdo);
+        echo json_encode($controller->update($input));
+    } elseif ($action === "delete_event") {
+        $controller = new EventController($pdo);
+        echo json_encode($controller->delete($input));
     } else {
         http_response_code(404);
         echo json_encode(["status" => "error", "message" => "Action not found"]);
@@ -38,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     if ($action === "getProfile") {
         $userData = authenticate();
         echo json_encode(["status" => "success", "user" => $userData]);
-    } elseif ($action === "list_events" && isset($_GET['user_id'])) { // NEW
+    } elseif ($action === "list_events" && isset($_GET['user_id'])) {
         $controller = new EventController($pdo);
         $controller->list($_GET['user_id']);
     } else {

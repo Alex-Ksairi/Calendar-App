@@ -28,8 +28,11 @@
 }
 
 .calendar-day {
-    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
     text-align: center;
+    padding: 10px 0;
     border-radius: 10px;
     cursor: pointer;
     transition: background 0.2s ease, transform 0.1s ease;
@@ -74,7 +77,22 @@
     background: rgba(0, 122, 255, 0.2);
     border-radius: 5px;
     font-size: 0.25rem;
+    font-weight: 400;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.update-button {
+    background-color: #3498db;
+    color: white;
+}
+
+.delete-button {
+    background-color: #e74d3ce3;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #e74c3c;
 }

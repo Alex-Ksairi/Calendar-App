@@ -17,7 +17,6 @@ function authenticate() {
     $token = str_replace("Bearer ", "", $headers['Authorization']);
 
     try {
-        // NEW syntax using Key object
         $decoded = JWT::decode($token, new Key(JWT_SECRET, 'HS256'));
         $decoded_array = (array) $decoded;
 

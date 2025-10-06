@@ -1,4 +1,3 @@
-import React from "react";
 import Form from "../components/Form";
 
 const url = "http://localhost:8000/index.php?action=";
